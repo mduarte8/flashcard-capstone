@@ -1,10 +1,13 @@
 import React from "react";
 
-function Deck() {
+function Deck({ deck }) {
+  console.log("in deck", deck);
   return (
-    <React.Fragment>
-      <p>PLACEHOLDER FOR A SINGLE DECK</p>
-    </React.Fragment>
+    <div>
+      <p>
+        {deck.id} {deck.name}
+      </p>
+    </div>
   );
 }
 
