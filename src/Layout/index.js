@@ -21,12 +21,9 @@ function Layout() {
             <Link className="btn btn-primary" to="/decks/new">
               +Create Deck
             </Link>
-            <p>grr on homepage</p>
             <Decks />
-            <p>decks should be above this</p>
           </Route>
           <Route exact path="/decks/new">
-            <p>Poop poop</p>
             <CreateDeck />
           </Route>
           <Route path="/decks/:deckId">

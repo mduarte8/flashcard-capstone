@@ -21,7 +21,7 @@ function Card({ card, deckUrl }) {
       >
         Edit
       </Link>
-      <button>Delete</button>
+      <button className="btn btn-danger">Delete</button>
     </div>
   );
 }
