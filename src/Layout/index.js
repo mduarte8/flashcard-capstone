@@ -5,6 +5,7 @@ import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 import Decks from "./Decks";
 import CreateDeck from "./CreateDeck";
 import BreadCrumbHeader from "./BreadCrumbHeader";
+import Deck from "./Deck.js";
 
 function Layout() {
   const { url, path } = useRouteMatch();
@@ -17,17 +18,19 @@ function Layout() {
         <Switch>
           <Route exact path="/">
             <BreadCrumbHeader path={path} />
-            <Link to="/decks/new">
-              <div type="button" className="btn btn-primary">
-                +Create Deck
-              </div>
+            <Link className="btn btn-primary" to="/decks/new">
+              +Create Deck
             </Link>
             <p>grr on homepage</p>
             <Decks />
             <p>decks should be above this</p>
           </Route>
           <Route exact path="/decks/new">
+            <p>Poop poop</p>
             <CreateDeck />
+          </Route>
+          <Route path="/decks/:deckId">
+            <Deck />
           </Route>
           <Route>
             <NotFound />

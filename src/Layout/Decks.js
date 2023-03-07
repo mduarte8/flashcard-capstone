@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Link, Route, Swtich } from "react-router-dom";
 // import { useEffect } from "react-router-dom";
 import { listDecks } from "../utils/api";
-import Deck from "./Deck";
+import DeckLink from "./DeckLink";
 
 function Decks() {
   const [decks, setDecks] = useState([]);
@@ -9,6 +10,7 @@ function Decks() {
   useEffect(() => {
     async function loadDecks() {
       const decksFromAPI = await listDecks();
+      console.log("decks from Api are", decksFromAPI);
       setDecks(decksFromAPI);
     }
     loadDecks();
@@ -21,7 +23,7 @@ function Decks() {
     return (
       <div>
         {decks.map((deck, id) => {
-          return <Deck deck={deck} />;
+          return <DeckLink deck={deck} />;
         })}
       </div>
     );
