@@ -9,7 +9,12 @@ import {
 import { readDeck } from "../utils/api";
 import BreadCrumbHeader from "./BreadCrumbHeader";
 
-function Card({ card, deckUrl }) {
+function Card({ card, deckUrl, deleteCardHandler }) {
+  const clickDeleteHandler = (event) => {
+    if (window.confirm("Are you sure you want to delete card?")) {
+      deleteCardHandler(card.id);
+    }
+  };
   return (
     <div>
       <p>
@@ -21,7 +26,9 @@ function Card({ card, deckUrl }) {
       >
         Edit
       </Link>
-      <button className="btn btn-danger">Delete</button>
+      <button onClick={clickDeleteHandler} className="btn btn-danger">
+        Delete
+      </button>
     </div>
   );
 }

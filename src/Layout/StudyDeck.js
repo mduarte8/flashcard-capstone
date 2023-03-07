@@ -10,8 +10,9 @@ import {
 import BreadCrumbHeader from "./BreadCrumbHeader";
 
 function StudyDeck({ deck }) {
+  const minDeckLength = 3;
   const { url, path } = useRouteMatch();
-  const { params } = useParams();
+  const { deckId } = useParams();
   const history = useHistory();
 
   console.log("deck is", deck);
@@ -50,40 +51,49 @@ function StudyDeck({ deck }) {
     setShowNext(true);
   };
 
-  useEffect(() => {}, [nextCounter]);
+  //   useEffect(() => {}, [nextCounter]);
+
+  if (deck.cards.length >= minDeckLength) {
+    return (
+      <React.Fragment>
+        <BreadCrumbHeader path={path} />
+        <h1> Study: {deck.name}</h1>
+        <div className="card">
+          <div className="card-body">
+            <h4 className="card-title">
+              {nextCounter} Card {deck.cards[nextCounter].id} of
+              {deck.cards.length}
+            </h4>
+            {frontCard ? (
+              <p className="card-text">{deck.cards[nextCounter].front}</p>
+            ) : (
+              <p className="card-text">{deck.cards[nextCounter].back}</p>
+            )}
+            <button onClick={flipHandler} className="btn btn-secondary">
+              Flip
+            </button>
+            {showNext ? (
+              <button onClick={nextHandler} className="btn btn-primary">
+                Next
+              </button>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
+      </React.Fragment>
+    );
+  }
   return (
     <React.Fragment>
       <BreadCrumbHeader path={path} />
       <h1> Study: {deck.name}</h1>
-      <div className="card">
-        <div className="card-body">
-          <h4 className="card-title">
-            {nextCounter} Card {deck.cards[nextCounter].id} of
-            {deck.cards.length}
-          </h4>
-          {frontCard ? (
-            <p className="card-text">{deck.cards[nextCounter].front}</p>
-          ) : (
-            <p className="card-text">{deck.cards[nextCounter].back}</p>
-          )}
-          <button onClick={flipHandler} className="btn btn-secondary">
-            Flip
-          </button>
-          {showNext ? (
-            <button onClick={nextHandler} className="btn btn-primary">
-              Next
-            </button>
-          ) : (
-            ""
-          )}
-        </div>
-      </div>
+      <h2> Not enough cards</h2>
+      <Link className="btn btn-primary" to={`/decks/${deckId}/cards/new`}>
+        + Add Cards
+      </Link>
     </React.Fragment>
   );
-  //   } else if (
-  //     window.confirm("Restart Cards? Okay to restart, cancel to return home")
-  //   ) {
-  //     setNextCounter(0);
 }
 
 export default StudyDeck;

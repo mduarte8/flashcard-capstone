@@ -23,7 +23,7 @@ function Decks() {
     return (
       <div>
         {decks.map((deck, id) => {
-          return <DeckLink deck={deck} />;
+          return <DeckLink deck={deck} key={id} />;
         })}
       </div>
     );

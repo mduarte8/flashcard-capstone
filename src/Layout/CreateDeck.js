@@ -22,7 +22,7 @@ function CreateDeck() {
   const submitHandler = async (event) => {
     event.preventDefault();
     await createDeck(formData);
-    history.push("/"); //THIS NEEDS TO BE UPDATED TO GO TO THE PAGE OF THE NEWLY CREATED DECK
+    history.goBack(); //THIS NEEDS TO BE UPDATED TO GO TO THE PAGE OF THE NEWLY CREATED DECK
   };
 
   return (
