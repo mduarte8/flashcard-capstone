@@ -42,9 +42,9 @@ function Deck() {
   //   if (Object.keys(deck).length > 0) {
   return (
     <React.Fragment>
-      <BreadCrumbHeader path={path} />
       <Switch>
         <Route exact path={path}>
+          <BreadCrumbHeader deck={deck} />
           <div className="card">
             <div className="card-body">
               <h4 className="card-title">{deck.name}</h4>

@@ -29,20 +29,22 @@ function StudyDeck({ deck }) {
       setShowNext(false);
       setFrontCard(true);
     } else if (window.confirm("Restart?")) {
+      setShowNext(false);
       setNextCounter(0);
     } else {
       history.push("/");
     }
 
-    console.log("nextCounter is", nextCounter);
-    console.log("deck.cards.length is", deck.cards.length);
-    if (nextCounter >= deck.cards.length) {
-      if (window.confirm("Restart?")) {
-        setNextCounter(0);
-      } else {
-        history.push("/");
-      }
-    }
+    // console.log("nextCounter is", nextCounter);
+    // console.log("deck.cards.length is", deck.cards.length);
+    // if (nextCounter >= deck.cards.length) {
+    //   setShowNext(false);
+    //   if (window.confirm("Restart?")) {
+    //     setNextCounter(0);
+    //   } else {
+    //     history.push("/");
+    //   }
+    // }
   };
 
   const flipHandler = (event) => {
@@ -56,7 +58,7 @@ function StudyDeck({ deck }) {
   if (deck.cards.length >= minDeckLength) {
     return (
       <React.Fragment>
-        <BreadCrumbHeader path={path} />
+        <BreadCrumbHeader deck={deck} />
         <h1> Study: {deck.name}</h1>
         <div className="card">
           <div className="card-body">
@@ -86,7 +88,7 @@ function StudyDeck({ deck }) {
   }
   return (
     <React.Fragment>
-      <BreadCrumbHeader path={path} />
+      <BreadCrumbHeader deck={deck} />
       <h1> Study: {deck.name}</h1>
       <h2> Not enough cards</h2>
       <Link className="btn btn-primary" to={`/decks/${deckId}/cards/new`}>

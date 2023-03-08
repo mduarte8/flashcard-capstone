@@ -51,7 +51,7 @@ function AddCard({ deck, loadDeck }) {
 
   return (
     <React.Fragment>
-      <BreadCrumbHeader />
+      <BreadCrumbHeader deck={deck} />
       <h2>{deck.name} : Add Card</h2>
       <form id="formElem" onSubmit={submitHandler}>
         <p>
