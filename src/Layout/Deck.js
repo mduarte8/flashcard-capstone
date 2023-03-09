@@ -5,8 +5,9 @@ import {
   Switch,
   useParams,
   useRouteMatch,
+  useHistory,
 } from "react-router-dom";
-import { readDeck, deleteCard } from "../utils/api";
+import { readDeck, deleteCard, listDecks } from "../utils/api";
 import BreadCrumbHeader from "./BreadCrumbHeader";
 import Card from "./Card";
 import StudyDeck from "./StudyDeck";
@@ -14,10 +15,12 @@ import EditDeck from "./EditDeck";
 import AddCard from "./AddCard";
 import EditCard from "./EditCard";
 
-function Deck() {
+function Deck({ deleteDeckHandler }) {
   const { url, path } = useRouteMatch();
   const { deckId } = useParams();
+  const history = useHistory();
   console.log("deckId is", deckId);
+  console.log("deleteDeckHandler is", deleteDeckHandler);
 
   const [deck, setDeck] = useState({ cards: [] });
 
@@ -31,6 +34,14 @@ function Deck() {
     await deleteCard(cardIdToDelete);
     await loadDeck();
   }
+
+  const handleDeleteDeck = (event) => {
+    if (window.confirm("Are you sure you want to delete this deck?")) {
+      deleteDeckHandler(deck.id);
+      listDecks();
+      history.push("/");
+    }
+  };
 
   useEffect(() => {
     loadDeck();
@@ -59,7 +70,9 @@ function Deck() {
               <Link className="btn btn-primary" to={`${url}/cards/new`}>
                 Add Cards
               </Link>
-              <button className="btn btn-danger">Delete</button>
+              <button className="btn btn-danger" onClick={handleDeleteDeck}>
+                Delete
+              </button>
             </div>
             {deck.cards.map((card) => {
               return (

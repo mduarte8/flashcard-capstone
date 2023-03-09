@@ -1,46 +1,29 @@
 {
   "decks": [
     {
-      "id": 1,
-      "name": "Rendering in React boop bop",
-      "description": "React's component structure allows for quickly building a complex web application that relies on DOM manipulation. womp womp womp "
-    },
-    {
-      "name": "React Router",
-      "description": "React Router is a collection of navigational components that compose declaratively with your application.",
-      "id": 2
+      "name": "hot diggity dog",
+      "description": "wowooww",
+      "id": 1
     }
   ],
   "cards": [
     {
-      "id": 1,
-      "front": "Differentiate between Real DOM and Virtual DOM.",
-      "back": "Virtual DOM updates are faster but do not directly update the HTML",
-      "deckId": 1
+      "front": "why you gotta",
+      "back": "be so poopy",
+      "deckId": 1,
+      "id": 1
     },
     {
-      "id": 2,
-      "front": "How do you modify the state of a different React component?",
-      "back": "Not at all! State is visible to the component only.",
-      "deckId": 1
+      "front": "yayayay",
+      "back": "ooooyeahh\n",
+      "deckId": 1,
+      "id": 2
     },
     {
-      "id": 3,
-      "front": "How do you pass data 'down' to a React child component?",
-      "back": "As properties or props hmmmm hhh",
-      "deckId": 1
-    },
-    {
-      "front": "What path will match the follow Route? WOWWOWOWOWO\n<Route>\n  <NotFound />\n</Route> zzzzzzzzz",
-      "back": "All paths. A route with no path matches all URL's LAAAA ppppppp asdkjlkla /////// yayayayayaya",
-      "deckId": 2,
-      "id": 4
-    },
-    {
-      "front": "What does <Switch> do? Eat's my shorts!",
-      "back": "Renders the first matching child <Route> booyakasha  EAT MY SHORTS hiphiphooray!!",
-      "deckId": 2,
-      "id": 5
+      "front": "helllll ya",
+      "back": ";ajsd;lfjkas;ldkfj",
+      "deckId": 1,
+      "id": 3
     }
   ]
 }

@@ -1,10 +1,29 @@
 import React from "react";
-import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
+import {
+  Link,
+  Route,
+  Switch,
+  useRouteMatch,
+  useHistory,
+} from "react-router-dom";
+import { listDecks } from "../utils/api";
 
-function DeckLink({ deck, id }) {
+function DeckLink({ deck, id, deleteDeck, loadDecks }) {
   // console.log("in deck", deck);
   const { url, path } = useRouteMatch();
   // console.log("Deck", deck.id, "url is", url);
+  const history = useHistory();
+  console.log("decklink load decks is", loadDecks);
+
+  console.log("decklink deletedeckh is", deleteDeck);
+
+  const handleDeleteDeck = async (event) => {
+    if (window.confirm("Are you sure you want to delete this deck?")) {
+      await deleteDeck(deck.id);
+      await loadDecks();
+    }
+  };
+
   return (
     <div className="card">
       <div className="card-body">
@@ -17,9 +36,9 @@ function DeckLink({ deck, id }) {
         <Link className="btn btn-primary" to={`/decks/${deck.id}/study`}>
           Study
         </Link>
-        <Link className="btn btn-danger" to="/">
+        <button className="btn btn-danger" onClick={handleDeleteDeck}>
           Delete
-        </Link>
+        </button>
       </div>
     </div>
   );

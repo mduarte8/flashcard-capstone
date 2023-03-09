@@ -6,6 +6,7 @@ import Decks from "./Decks";
 import CreateDeck from "./CreateDeck";
 import BreadCrumbHeader from "./BreadCrumbHeader";
 import Deck from "./Deck.js";
+import { deleteDeck, listDecks } from "../utils/api";
 
 function Layout() {
   const { url, path } = useRouteMatch();
@@ -16,10 +17,10 @@ function Layout() {
   //   setDeck(deckFromAPI);
   // };
 
-  // async function deleteDeckHandler(deckIdToDelete) {
-  //   await deleteCard(deckIdToDelete);
-  //   await loadDeck();
-  // }
+  async function deleteDeckHandler(deckIdToDelete) {
+    await deleteDeck(deckIdToDelete);
+    listDecks();
+  }
 
   return (
     <>
@@ -32,13 +33,13 @@ function Layout() {
             <Link className="btn btn-primary" to="/decks/new">
               +Create Deck
             </Link>
-            <Decks />
+            <Decks deleteDeckHandler={deleteDeckHandler} />
           </Route>
           <Route exact path="/decks/new">
             <CreateDeck />
           </Route>
           <Route path="/decks/:deckId">
-            <Deck />
+            <Deck deleteDeckHandler={deleteDeckHandler} />
           </Route>
           <Route>
             <NotFound />
