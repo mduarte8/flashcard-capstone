@@ -21,11 +21,11 @@ function Deck() {
 
   const [deck, setDeck] = useState({ cards: [] });
 
-  async function loadDeck() {
+  const loadDeck = async () => {
     const deckFromAPI = await readDeck(deckId);
     console.log("deckfromapi is", deckFromAPI);
     setDeck(deckFromAPI);
-  }
+  };
 
   async function deleteCardHandler(cardIdToDelete) {
     await deleteCard(cardIdToDelete);
@@ -34,11 +34,12 @@ function Deck() {
 
   useEffect(() => {
     loadDeck();
+    console.log("DECK USEEFFECT TRIGGERED!!");
   }, [deckId]);
 
   console.log("IN DECK DECK IS", deck);
-  console.log("deck url is:::", url);
-  console.log("deck path is:::", path);
+  console.log("Deck url is--", url);
+  console.log("Deck path is--", path);
   //   if (Object.keys(deck).length > 0) {
   return (
     <React.Fragment>
@@ -76,7 +77,7 @@ function Deck() {
           <StudyDeck deck={deck} />
         </Route>
         <Route path={`${path}/edit`}>
-          <EditDeck deck={deck} />
+          <EditDeck deck={deck} loadDeck={loadDeck} />
         </Route>
         <Route exact path={`${path}/delete`}>
           {/* {window.confirm("Delete this card? NO FUNCTIONING YET") && (
@@ -87,7 +88,7 @@ function Deck() {
           <AddCard deck={deck} loadDeck={loadDeck} />
         </Route>
         <Route path={`${path}/cards/:cardId/edit`}>
-          <EditCard deck={deck} />
+          <EditCard deck={deck} loadDeck={loadDeck} />
         </Route>
       </Switch>
     </React.Fragment>

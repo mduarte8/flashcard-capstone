@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 
-function DeckLink({ deck }) {
+function DeckLink({ deck, id }) {
   // console.log("in deck", deck);
   const { url, path } = useRouteMatch();
   // console.log("Deck", deck.id, "url is", url);

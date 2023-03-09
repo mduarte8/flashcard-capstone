@@ -7,12 +7,12 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 
-function BreadCrumbHeader({ deck = {}, card = { id: -99 } }) {
+function BreadCrumbHeader({ deck = {} }) {
   const params = useParams();
   const { url, path } = useRouteMatch();
   console.log("breadcrumbheader params are", params);
   console.log("breadcrumbheader path is", path);
-  console.log("bch card.id is", card.id);
+  //   console.log("bch card.id is", card.id);
 
   return (
     <React.Fragment>

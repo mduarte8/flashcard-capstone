@@ -63,8 +63,8 @@ function StudyDeck({ deck }) {
         <div className="card">
           <div className="card-body">
             <h4 className="card-title">
-              {nextCounter} Card {deck.cards[nextCounter].id} of
-              {deck.cards.length}
+              {/* Card {deck.cards[nextCounter].id} of {deck.cards.length} */}
+              Card {nextCounter + 1} of {deck.cards.length}
             </h4>
             {frontCard ? (
               <p className="card-text">{deck.cards[nextCounter].front}</p>
