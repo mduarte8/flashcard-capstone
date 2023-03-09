@@ -8,7 +8,8 @@ function DeckLink({ deck, id }) {
   return (
     <div className="card">
       <div className="card-body">
-        <h4 className="card-title">{deck.name}</h4>
+        <h4 className="card-title">{deck.name}</h4>{" "}
+        <span>{deck.cards.length} cards</span>
         <p className="card-text">{deck.description}</p>
         <Link className="btn btn-secondary" to={`/decks/${deck.id}`}>
           View

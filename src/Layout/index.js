@@ -10,6 +10,17 @@ import Deck from "./Deck.js";
 function Layout() {
   const { url, path } = useRouteMatch();
 
+  // const loadDeck = async () => {
+  //   const deckFromAPI = await readDeck(deckId);
+  //   console.log("deckfromapi is", deckFromAPI);
+  //   setDeck(deckFromAPI);
+  // };
+
+  // async function deleteDeckHandler(deckIdToDelete) {
+  //   await deleteCard(deckIdToDelete);
+  //   await loadDeck();
+  // }
+
   return (
     <>
       <Header />
