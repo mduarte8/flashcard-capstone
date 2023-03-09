@@ -17,9 +17,8 @@ function Card({ card, deckUrl, deleteCardHandler }) {
   };
   return (
     <div>
-      <p>
-        {card.id}, {card.front}, {card.back}
-      </p>
+      <p>{card.front}</p>
+      <p>{card.back}</p>
       <Link
         className="btn btn-secondary"
         to={`${deckUrl}/cards/${card.id}/edit`}

@@ -2,8 +2,8 @@
   "decks": [
     {
       "id": 1,
-      "name": "Rendering in React",
-      "description": "React's component structure allows for quickly building a complex web application that relies on DOM manipulation. "
+      "name": "Rendering in React boop bop",
+      "description": "React's component structure allows for quickly building a complex web application that relies on DOM manipulation. womp womp womp "
     },
     {
       "name": "React Router",
@@ -41,12 +41,6 @@
       "back": "Renders the first matching child <Route> booyakasha  EAT MY SHORTS hiphiphooray!!",
       "deckId": 2,
       "id": 5
-    },
-    {
-      "front": "whoomp there it is",
-      "back": "how is your prat",
-      "deckId": 1,
-      "id": 6
     }
   ]
 }

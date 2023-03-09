@@ -48,18 +48,6 @@ function EditCard({ deck, loadDeck }) {
     history.goBack();
   };
 
-  //   if (deck.cards.length > 0) {
-  // const [{ front, back, id }] = deck.cards.filter((card) => {
-  //   console.log("parseInt(cardId) is", parseInt(cardId));
-  //   return card.id === parseInt(cardId);
-  // });
-  // console.log("edit card front", front);
-  // console.log("edit card back", back);
-  // console.log("edit card id", id);
-
-  // const initialFormState = { id, front, back };
-  // setFormData({ id, front, back });
-
   return (
     <React.Fragment>
       <BreadCrumbHeader deck={deck} />
@@ -97,7 +85,6 @@ function EditCard({ deck, loadDeck }) {
       <p>Placeholder in jas AddCard!</p>
     </React.Fragment>
   );
-  //   } else return <p>Loading.....</p>;
 }
 
 export default EditCard;
