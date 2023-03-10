@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import { createCard } from "../utils/api";
 import BreadCrumbHeader from "./BreadCrumbHeader";
+import CardForm from "./CardForm";
 
 function AddCard({ deck, loadDeck }) {
   const { url, path } = useRouteMatch();
@@ -20,23 +21,22 @@ function AddCard({ deck, loadDeck }) {
   };
 
   const [formData, setFormData] = useState({ ...initialFormState });
-  const handleChange = ({ target }) => {
-    setFormData({
-      ...formData,
-      [target.name]: target.value,
-    });
-  };
+  //   const handleChange = ({ target }) => {
+  //     setFormData({
+  //       ...formData,
+  //       [target.name]: target.value,
+  //     });
+  //   };
 
-  const submitHandler = async (event) => {
-    event.preventDefault();
+  const submitHandler = async (formData) => {
     await createCard(deckId, formData);
-    setFormData({ ...initialFormState });
+    // setFormData({ ...initialFormState });
+    console.log("Card created with", formData);
     await loadDeck();
-    event.target.reset();
+    // event.target.reset();
   };
 
-  const exitHandler = async (event) => {
-    event.preventDefault();
+  const exitHandler = async () => {
     await loadDeck();
     history.push(`/decks/${deckId}`);
   };
@@ -46,7 +46,14 @@ function AddCard({ deck, loadDeck }) {
       <BreadCrumbHeader deck={deck} />
       <h2>{deck.name}</h2>
       <h1>Add Card</h1>
-      <form id="formElem" onSubmit={submitHandler}>
+      <CardForm
+        initialFormState={initialFormState}
+        handleSubmit={submitHandler}
+        exitHandler={exitHandler}
+        exitButtonText="Done"
+        submitButtonText="Add"
+      />
+      {/* <form id="formElem" onSubmit={submitHandler}>
         <p>
           <label htmlFor="front" className="form-label">
             Front
@@ -77,7 +84,7 @@ function AddCard({ deck, loadDeck }) {
         <button className="btn btn-primary mx-2" type="submit">
           Submit
         </button>
-      </form>
+      </form> */}
     </React.Fragment>
   );
 }

@@ -8,12 +8,6 @@
   ],
   "cards": [
     {
-      "front": "WHAT'S LOVE GOT TO DO WITH IT",
-      "back": "GOT TO DO WITH IT",
-      "deckId": 1,
-      "id": 1
-    },
-    {
       "front": "WHAT'S LOVE ",
       "back": "BUT A SECOND HAND EMOTIONNNN",
       "deckId": 1,
@@ -30,6 +24,12 @@
       "back": "WHEN A HEART CAN BE BROOOKEN",
       "deckId": 1,
       "id": 4
+    },
+    {
+      "front": "This is only 1 card",
+      "back": "this is only back card",
+      "deckId": 1,
+      "id": 5
     }
   ]
 }
