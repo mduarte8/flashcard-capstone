@@ -14,7 +14,6 @@ function AddCard({ deck, loadDeck }) {
   const { url, path } = useRouteMatch();
   const { deckId } = useParams();
   const history = useHistory();
-  console.log("deckId in addcard is", deckId);
   const initialFormState = {
     front: "",
     back: "",
@@ -22,7 +21,6 @@ function AddCard({ deck, loadDeck }) {
 
   const [formData, setFormData] = useState({ ...initialFormState });
   const handleChange = ({ target }) => {
-    console.log(target.value);
     setFormData({
       ...formData,
       [target.name]: target.value,
@@ -32,15 +30,9 @@ function AddCard({ deck, loadDeck }) {
   const submitHandler = async (event) => {
     event.preventDefault();
     await createCard(deckId, formData);
-    // const response = await createCard(deckId, formData);
-    // console.log("response is", response);
-    console.log("formData is", formData);
-    console.log("Success Submitted!!");
     setFormData({ ...initialFormState });
     await loadDeck();
-    // history.push(`/decks/${deckId}`);
     event.target.reset();
-    //THIS NEEDS TO BE UPDATED TO GO TO THE PAGE OF THE NEWLY CREATED DECK
   };
 
   const exitHandler = async (event) => {

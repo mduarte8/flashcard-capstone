@@ -9,13 +9,8 @@ import {
 import { listDecks } from "../utils/api";
 
 function DeckLink({ deck, id, deleteDeck, loadDecks }) {
-  // console.log("in deck", deck);
   const { url, path } = useRouteMatch();
-  // console.log("Deck", deck.id, "url is", url);
   const history = useHistory();
-  console.log("decklink load decks is", loadDecks);
-
-  console.log("decklink deletedeckh is", deleteDeck);
 
   const handleDeleteDeck = async (event) => {
     if (window.confirm("Are you sure you want to delete this deck?")) {

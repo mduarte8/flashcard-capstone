@@ -12,21 +12,14 @@ import { readDeck, updateDeck } from "../utils/api";
 
 function EditDeck({ deck, loadDeck }) {
   const { deckId, cardId } = useParams();
-  //   console.log("edit card params is,", deckId, cardId);
   const { url, path } = useRouteMatch();
   const history = useHistory();
-  //   console.log("deck in editCard is", deck);
   const initialFormState = { id: 0, name: "", description: "" };
   const [formData, setFormData] = useState({ ...initialFormState });
-  console.log("initial Form State = ", initialFormState);
-  //   console.log("edit card formData is", formData);
-  console.log("formData before readC is", formData);
 
   useEffect(() => {
     readDeck(deckId).then((deck) => setFormData({ ...deck }));
   }, []);
-
-  console.log("formData after readCard is", formData);
 
   const handleChange = (event) => {
     setFormData({
@@ -39,7 +32,6 @@ function EditDeck({ deck, loadDeck }) {
     event.preventDefault();
     await updateDeck(formData);
     await loadDeck();
-    console.log("Updated Card is", formData);
     history.goBack();
   };
 

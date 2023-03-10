@@ -19,14 +19,11 @@ function Deck({ deleteDeckHandler }) {
   const { url, path } = useRouteMatch();
   const { deckId } = useParams();
   const history = useHistory();
-  console.log("deckId is", deckId);
-  console.log("deleteDeckHandler is", deleteDeckHandler);
 
   const [deck, setDeck] = useState({ cards: [] });
 
   const loadDeck = async () => {
     const deckFromAPI = await readDeck(deckId);
-    console.log("deckfromapi is", deckFromAPI);
     setDeck(deckFromAPI);
   };
 
@@ -45,13 +42,8 @@ function Deck({ deleteDeckHandler }) {
 
   useEffect(() => {
     loadDeck();
-    console.log("DECK USEEFFECT TRIGGERED!!");
   }, [deckId]);
 
-  console.log("IN DECK DECK IS", deck);
-  console.log("Deck url is--", url);
-  console.log("Deck path is--", path);
-  //   if (Object.keys(deck).length > 0) {
   return (
     <React.Fragment>
       <Switch>
@@ -105,11 +97,7 @@ function Deck({ deleteDeckHandler }) {
         <Route path={`${path}/edit`}>
           <EditDeck deck={deck} loadDeck={loadDeck} />
         </Route>
-        <Route exact path={`${path}/delete`}>
-          {/* {window.confirm("Delete this card? NO FUNCTIONING YET") && (
-              <p>Delete place</p>
-            )} */}
-        </Route>
+        <Route exact path={`${path}/delete`}></Route>
         <Route path={`${path}/cards/new`}>
           <AddCard deck={deck} loadDeck={loadDeck} />
         </Route>
@@ -119,8 +107,6 @@ function Deck({ deleteDeckHandler }) {
       </Switch>
     </React.Fragment>
   );
-  //   }
-  //   return <p>Loading........ In Deck!</p>;
 }
 
 export default Deck;

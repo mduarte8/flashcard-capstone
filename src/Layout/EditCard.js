@@ -49,11 +49,11 @@ function EditCard({ deck, loadDeck }) {
       <form id="formElem" onSubmit={submitHandler}>
         <div class="mb-3">
           <p>
-            <label htmlFor="front" class="form-label">
+            <label htmlFor="front" className="form-label">
               Front
             </label>
             <textarea
-              class="form-control"
+              className="form-control"
               id="front"
               name="front"
               placeholder="Front of card"

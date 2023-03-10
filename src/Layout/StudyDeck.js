@@ -14,10 +14,6 @@ function StudyDeck({ deck }) {
   const { url, path } = useRouteMatch();
   const { deckId } = useParams();
   const history = useHistory();
-
-  console.log("deck is", deck);
-  console.log("deck.cards.length is", deck.cards.length);
-
   const [nextCounter, setNextCounter] = useState(0);
   const [frontCard, setFrontCard] = useState(true);
   const [showNext, setShowNext] = useState(false);
@@ -34,17 +30,6 @@ function StudyDeck({ deck }) {
     } else {
       history.push("/");
     }
-
-    // console.log("nextCounter is", nextCounter);
-    // console.log("deck.cards.length is", deck.cards.length);
-    // if (nextCounter >= deck.cards.length) {
-    //   setShowNext(false);
-    //   if (window.confirm("Restart?")) {
-    //     setNextCounter(0);
-    //   } else {
-    //     history.push("/");
-    //   }
-    // }
   };
 
   const flipHandler = (event) => {
@@ -52,8 +37,6 @@ function StudyDeck({ deck }) {
     setFrontCard(!frontCard);
     setShowNext(true);
   };
-
-  //   useEffect(() => {}, [nextCounter]);
 
   if (deck.cards.length >= minDeckLength) {
     return (
@@ -63,7 +46,6 @@ function StudyDeck({ deck }) {
         <div className="card">
           <div className="card-body">
             <h4 className="card-title">
-              {/* Card {deck.cards[nextCounter].id} of {deck.cards.length} */}
               Card {nextCounter + 1} of {deck.cards.length}
             </h4>
             {frontCard ? (

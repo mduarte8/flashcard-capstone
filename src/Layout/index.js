@@ -11,12 +11,6 @@ import { deleteDeck, listDecks } from "../utils/api";
 function Layout() {
   const { url, path } = useRouteMatch();
 
-  // const loadDeck = async () => {
-  //   const deckFromAPI = await readDeck(deckId);
-  //   console.log("deckfromapi is", deckFromAPI);
-  //   setDeck(deckFromAPI);
-  // };
-
   async function deleteDeckHandler(deckIdToDelete) {
     await deleteDeck(deckIdToDelete);
     listDecks();
@@ -26,7 +20,6 @@ function Layout() {
     <>
       <Header />
       <div className="container">
-        {/* TODO: Implement the screen starting here */}
         <Switch>
           <Route exact path="/">
             <BreadCrumbHeader path={path} />
