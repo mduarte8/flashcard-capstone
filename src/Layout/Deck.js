@@ -57,34 +57,47 @@ function Deck({ deleteDeckHandler }) {
       <Switch>
         <Route exact path={path}>
           <BreadCrumbHeader deck={deck} />
-          <div className="card">
-            <div className="card-body">
+          <div className="card mb-4">
+            <div className="card-body container">
               <h4 className="card-title">{deck.name}</h4>
               <p className="card-text">{deck.description}</p>
-              <Link className="btn btn-secondary" to={`${url}/edit`}>
-                Edit
-              </Link>
-              <Link className="btn btn-primary" to={`${url}/study`}>
-                Study
-              </Link>
-              <Link className="btn btn-primary" to={`${url}/cards/new`}>
-                Add Cards
-              </Link>
-              <button className="btn btn-danger" onClick={handleDeleteDeck}>
-                Delete
-              </button>
+              <div className="row g-5">
+                <div class="col-10">
+                  <Link className="btn btn-secondary mx-2" to={`${url}/edit`}>
+                    Edit
+                  </Link>
+
+                  <Link className="btn btn-primary mx-2" to={`${url}/study`}>
+                    Study
+                  </Link>
+
+                  <Link
+                    className="btn btn-primary mx-2"
+                    to={`${url}/cards/new`}
+                  >
+                    Add Cards
+                  </Link>
+                </div>
+
+                <button
+                  className="btn btn-danger col-2"
+                  onClick={handleDeleteDeck}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
-            {deck.cards.map((card) => {
-              return (
-                <Card
-                  card={card}
-                  deckUrl={url}
-                  key={card.id}
-                  deleteCardHandler={deleteCardHandler}
-                />
-              );
-            })}
           </div>
+          {deck.cards.map((card) => {
+            return (
+              <Card
+                card={card}
+                deckUrl={url}
+                key={card.id}
+                deleteCardHandler={deleteCardHandler}
+              />
+            );
+          })}
         </Route>
         <Route path={`${path}/study`}>
           <StudyDeck deck={deck} />

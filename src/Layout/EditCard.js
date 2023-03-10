@@ -12,21 +12,14 @@ import { updateCard, readDeck, readCard } from "../utils/api";
 
 function EditCard({ deck, loadDeck }) {
   const { deckId, cardId } = useParams();
-  //   console.log("edit card params is,", deckId, cardId);
   const { url, path } = useRouteMatch();
   const history = useHistory();
-  //   console.log("deck in editCard is", deck);
   const initialFormState = { id: 0, front: "", back: "" };
   const [formData, setFormData] = useState({ ...initialFormState });
-  console.log("initial Form State = ", initialFormState);
-  //   console.log("edit card formData is", formData);
-  console.log("formData before readC is", formData);
 
   useEffect(() => {
     readCard(cardId).then((card) => setFormData({ ...card }));
   }, []);
-
-  console.log("formData after readCard is", formData);
 
   const handleChange = (event) => {
     setFormData({
@@ -39,7 +32,6 @@ function EditCard({ deck, loadDeck }) {
     event.preventDefault();
     await updateCard(formData);
     await loadDeck();
-    console.log("Updated Card is", formData);
     history.goBack();
   };
 
@@ -55,34 +47,41 @@ function EditCard({ deck, loadDeck }) {
         {deck.name} : Edit Card {cardId}{" "}
       </h2>
       <form id="formElem" onSubmit={submitHandler}>
-        <p>
-          <label htmlFor="front">Front</label>
-          <textarea
-            id="front"
-            name="front"
-            placeholder="Front of card"
-            value={formData.front}
-            onChange={handleChange}
-          ></textarea>
-        </p>
-        <p>
-          <label htmlFor="back">Back</label>
-          <textarea
-            id="back"
-            name="back"
-            placeholder="Back of card"
-            value={formData.back}
-            onChange={handleChange}
-          ></textarea>
-        </p>
-        <button onClick={cancelHandler} className="btn btn-secondary">
-          Cancel
-        </button>
-        <button className="btn btn-primary" type="submit">
-          Submit
-        </button>
+        <div class="mb-3">
+          <p>
+            <label htmlFor="front" class="form-label">
+              Front
+            </label>
+            <textarea
+              class="form-control"
+              id="front"
+              name="front"
+              placeholder="Front of card"
+              value={formData.front}
+              onChange={handleChange}
+            ></textarea>
+          </p>
+          <p>
+            <label htmlFor="back" class="form-label">
+              Back
+            </label>
+            <textarea
+              class="form-control"
+              id="back"
+              name="back"
+              placeholder="Back of card"
+              value={formData.back}
+              onChange={handleChange}
+            ></textarea>
+          </p>
+          <button onClick={cancelHandler} className="btn btn-secondary">
+            Cancel
+          </button>
+          <button className="btn btn-primary" type="submit">
+            Submit
+          </button>
+        </div>
       </form>
-      <p>Placeholder in jas AddCard!</p>
     </React.Fragment>
   );
 }

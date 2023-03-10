@@ -30,7 +30,7 @@ function Layout() {
         <Switch>
           <Route exact path="/">
             <BreadCrumbHeader path={path} />
-            <Link className="btn btn-primary" to="/decks/new">
+            <Link className="btn btn-primary m-2" to="/decks/new">
               +Create Deck
             </Link>
             <Decks deleteDeckHandler={deleteDeckHandler} />

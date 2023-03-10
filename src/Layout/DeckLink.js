@@ -26,19 +26,26 @@ function DeckLink({ deck, id, deleteDeck, loadDecks }) {
 
   return (
     <div className="card">
-      <div className="card-body">
+      <div className="card-body container">
         <h4 className="card-title">{deck.name}</h4>{" "}
         <span>{deck.cards.length} cards</span>
         <p className="card-text">{deck.description}</p>
-        <Link className="btn btn-secondary" to={`/decks/${deck.id}`}>
-          View
-        </Link>
-        <Link className="btn btn-primary" to={`/decks/${deck.id}/study`}>
-          Study
-        </Link>
-        <button className="btn btn-danger" onClick={handleDeleteDeck}>
-          Delete
-        </button>
+        <div class="row">
+          <div class="col-10">
+            <Link className="btn btn-secondary mx-2" to={`/decks/${deck.id}`}>
+              View
+            </Link>
+            <Link
+              className="btn btn-primary mx-2"
+              to={`/decks/${deck.id}/study`}
+            >
+              Study
+            </Link>
+          </div>
+          <button className="btn btn-danger col-2 " onClick={handleDeleteDeck}>
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -16,13 +16,12 @@ function CreateDeck() {
       ...formData,
       [target.name]: target.value,
     });
-    console.log(target.value);
   };
 
   const submitHandler = async (event) => {
     event.preventDefault();
     await createDeck(formData);
-    history.goBack(); //THIS NEEDS TO BE UPDATED TO GO TO THE PAGE OF THE NEWLY CREATED DECK
+    history.goBack();
   };
 
   return (
@@ -30,29 +29,42 @@ function CreateDeck() {
       <BreadCrumbHeader path={path} />
       <h1>Create Deck</h1>
       <form onSubmit={submitHandler}>
-        <p>
-          <label htmlFor="name">Name</label>
-          <input
-            id="name"
-            type="text"
-            name="name"
-            placeholder="Deck Name"
-            onChange={handleChange}
-          ></input>
-        </p>
-        <p>
-          <label htmlFor="description">Description</label>
-          <textarea
-            id="description"
-            name="description"
-            placeholder="Brief description of the deck"
-            onChange={handleChange}
-          ></textarea>
-        </p>
-
-        <button onClick={() => history.push("/")}>Cancel</button>
-
-        <button type="submit">Submit</button>
+        <div class="mb-3">
+          <p>
+            <label htmlFor="name" class="form-label">
+              Name
+            </label>
+            <input
+              class="form-control"
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Deck Name"
+              onChange={handleChange}
+            ></input>
+          </p>
+          <p>
+            <label htmlFor="description" class="form-label">
+              Description
+            </label>
+            <textarea
+              class="form-control"
+              id="description"
+              name="description"
+              placeholder="Brief description of the deck"
+              onChange={handleChange}
+            ></textarea>
+          </p>
+          <button
+            class="btn btn-secondary mx-2"
+            onClick={() => history.push("/")}
+          >
+            Cancel
+          </button>
+          <button type="submit mx-2" class="btn btn-primary">
+            Submit
+          </button>
+        </div>
       </form>
     </React.Fragment>
   );

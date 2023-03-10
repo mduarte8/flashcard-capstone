@@ -56,31 +56,36 @@ function AddCard({ deck, loadDeck }) {
       <h1>Add Card</h1>
       <form id="formElem" onSubmit={submitHandler}>
         <p>
-          <label htmlFor="front">Front</label>
+          <label htmlFor="front" className="form-label">
+            Front
+          </label>
           <textarea
             id="front"
             name="front"
             placeholder="Front of card"
             onChange={handleChange}
+            className="form-control"
           ></textarea>
         </p>
         <p>
-          <label htmlFor="back">Back</label>
+          <label htmlFor="back" className="form-label">
+            Back
+          </label>
           <textarea
             id="back"
             name="back"
             placeholder="Back of card"
             onChange={handleChange}
+            className="form-control"
           ></textarea>
         </p>
-        <button className="btn btn-secondary" onClick={exitHandler}>
+        <button className="btn btn-secondary mx-2" onClick={exitHandler}>
           Done
         </button>
-        <button className="btn btn-primary" type="submit">
+        <button className="btn btn-primary mx-2" type="submit">
           Submit
         </button>
       </form>
-      <p>Placeholder in jas AddCard!</p>
     </React.Fragment>
   );
 }

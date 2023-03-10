@@ -16,18 +16,30 @@ function Card({ card, deckUrl, deleteCardHandler }) {
     }
   };
   return (
-    <div>
-      <p>{card.front}</p>
-      <p>{card.back}</p>
-      <Link
-        className="btn btn-secondary"
-        to={`${deckUrl}/cards/${card.id}/edit`}
-      >
-        Edit
-      </Link>
-      <button onClick={clickDeleteHandler} className="btn btn-danger">
-        Delete
-      </button>
+    <div class="card my-2">
+      <div class="card-body container">
+        <div class="row">
+          <div class="col-md">
+            <p>{card.front}</p>
+          </div>
+          <div class="col-md">
+            <p>{card.back}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-10">
+            <Link
+              className="btn btn-secondary mx-2"
+              to={`${deckUrl}/cards/${card.id}/edit`}
+            >
+              Edit
+            </Link>
+          </div>
+          <button onClick={clickDeleteHandler} className="btn btn-danger col-2">
+            Delete
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

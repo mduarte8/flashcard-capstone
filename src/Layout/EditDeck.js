@@ -55,34 +55,41 @@ function EditDeck({ deck, loadDeck }) {
         {deck.name} : Edit Deck {deckId}{" "}
       </h2>
       <form id="formElem" onSubmit={submitHandler}>
-        <p>
-          <label htmlFor="name">Name</label>
-          <textarea
-            id="name"
-            name="name"
-            placeholder="Name of Deck"
-            value={formData.name}
-            onChange={handleChange}
-          ></textarea>
-        </p>
-        <p>
-          <label htmlFor="description">Description</label>
-          <textarea
-            id="description"
-            name="description"
-            placeholder="Description"
-            value={formData.description}
-            onChange={handleChange}
-          ></textarea>
-        </p>
-        <button onClick={cancelHandler} className="btn btn-secondary">
-          Cancel
-        </button>
-        <button className="btn btn-primary" type="submit">
-          Submit
-        </button>
+        <div class="mb-3">
+          <p>
+            <label htmlFor="name" class="form-label">
+              Name
+            </label>
+            <textarea
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Name of Deck"
+              value={formData.name}
+              onChange={handleChange}
+            ></textarea>
+          </p>
+          <p>
+            <label htmlFor="description" class="form-label">
+              Description
+            </label>
+            <textarea
+              class="form-control"
+              id="description"
+              name="description"
+              placeholder="Description"
+              value={formData.description}
+              onChange={handleChange}
+            ></textarea>
+          </p>
+          <button onClick={cancelHandler} className="btn btn-secondary">
+            Cancel
+          </button>
+          <button className="btn btn-primary" type="submit">
+            Submit
+          </button>
+        </div>
       </form>
-      <p>Placeholder in jas AddCard!</p>
     </React.Fragment>
   );
 }
