@@ -3,7 +3,6 @@ import { Link, Route, Swtich } from "react-router-dom";
 // import { useEffect } from "react-router-dom";
 import { listDecks } from "../utils/api";
 import DeckLink from "./DeckLink";
-import "../css/App.css";
 
 function Decks({ deleteDeckHandler }) {
   const [decks, setDecks] = useState([]);
