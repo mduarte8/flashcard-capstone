@@ -1,35 +1,29 @@
 {
   "decks": [
     {
-      "name": "PGA TOUR",
-      "description": "HI HO HO HOHOOO",
+      "name": "Spanish",
+      "description": "Quick Translational study guide",
       "id": 1
     }
   ],
   "cards": [
     {
-      "front": "WHAT'S LOVE ",
-      "back": "BUT A SECOND HAND EMOTIONNNN",
+      "front": "Me gustaría mejorar mi nivel de español.",
+      "back": "I would like to improve my level of Spanish.",
+      "deckId": 1,
+      "id": 1
+    },
+    {
+      "front": " ¿Podría recomendarme un buen restaurante en esta área?",
+      "back": "Could you recommend a good restaurant in this area?",
       "deckId": 1,
       "id": 2
     },
     {
-      "front": "WHAAAATS LOVE GOT TO DO ",
-      "back": "GOT TO DO WITH IT",
+      "front": "Es importante que tengas una mente abierta cuando viajes a un país extranjero.",
+      "back": "It's important to have an open mind when traveling to a foreign country.",
       "deckId": 1,
       "id": 3
-    },
-    {
-      "front": "WHO NEEDS A HEART WHEN A HEART",
-      "back": "WHEN A HEART CAN BE BROOOKEN",
-      "deckId": 1,
-      "id": 4
-    },
-    {
-      "front": "This is only 1 card",
-      "back": "this is only back card",
-      "deckId": 1,
-      "id": 5
     }
   ]
 }
